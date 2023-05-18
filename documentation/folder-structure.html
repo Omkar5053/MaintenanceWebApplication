@@ -1,0 +1,201 @@
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Template name</title>
+
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+        <!-- inject:css-->
+
+        <link rel="stylesheet" href="css/plugin.min.css">
+
+        <link rel="stylesheet" href="style.css">
+
+        <!-- endinject -->
+
+        <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="img/favicon.ico">
+    </head>
+    <body>
+        <div class="atbd-page-wrap">
+            
+    <div class="left-sidebar show" id="left-sidebar">
+        <div class="left-sidebar-menu">
+            <a href="#" class="sidebar-close">
+                <i class="la la-times"></i>
+            </a>
+            <a href="index.html" class="logo text-s">
+                <span class="logo-lg"><img src="img/Logo_Dark.png" style="width: 160px;" alt="" id="sidebar-main-logo">
+                </span>
+            </a>
+            <h5 class="sidebar-title">TABLE OF CONTENTS</h5>
+            <ul class="sidebar-nav list-unstyled" id="left-bar-menu">
+                <li class="sidebar-nav-item">
+                    <a href="index.html" class="sidebar-nav__link ">
+                        <i class="la la-angle-right"></i>
+                        <span>Introductions</span></a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="features.html" class="sidebar-nav__link ">
+                        <i class="la la-angle-right"></i>
+                        <span>Features</span></a>
+                </li>
+
+                <li class="sidebar-nav-item">
+                    <a href="folder-structure.html" class="sidebar-nav__link active">
+                        <i class="la la-angle-right"></i>
+                        <span>Folder Structure</span></a>
+                </li>
+
+                <li class="sidebar-nav-item">
+                    <a href="getting-started.html" class="sidebar-nav__link ">
+                        <i class="la la-angle-right"></i>
+                        <span>Getting Started</span></a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="customization.html" class="sidebar-nav__link ">
+                        <i class="la la-angle-right"></i>
+                        <span>Theme Customization</span></a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="rtl.html" class="sidebar-nav__link ">
+                        <i class="la la-angle-right"></i>
+                        <span>RTL</span></a>
+                </li>
+
+                <li class="sidebar-nav-item">
+                    <a href="credits.html" class="sidebar-nav__link ">
+                        <i class="la la-angle-right"></i>
+                        <span>Credits</span></a>
+                </li>
+                <li class="sidebar-nav-item">
+                    <a href="support.html" class="sidebar-nav__link ">
+                        <i class="la la-angle-right"></i>
+                        <span>Support</span></a>
+                </li>
+            </ul>
+        </div>
+        <!-- ends: .left-sidebar-menu -->
+    </div>
+
+            <div class="page-content">
+                <div class="content-inner">
+                    <div class="docu-page-header">
+                        <nav class="navbar navbar-expand-md">
+                            <div class="main-header-right">
+                                <div class="main-header-left d-lg-none">
+                                    <div class="logo-wrapper">
+                                        <a class="navbar-brand" href="index.html" title=""><img src="img/logo.svg" alt="" data-original-title="" title=""></a>
+                                    </div>
+                                </div>
+                                <div class="mobile-sidebar">
+                                    <a href="#" title="">
+                                        <span class="sidebar-toggle">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
+                            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" data-original-title="" title="" aria-expanded="false">
+                                <span class="menu-trigger">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </span>
+                            </button>
+                            <div class="navbar-collapse collapse" id="collapsibleNavbar" style="">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="http://localhost:3000/dashboard/default" target="_blank" data-original-title="" title="">Demo</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#" target="_blank" data-original-title="" title="">Buy Now</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#" target="_blank" data-original-title="" title="">Customer Support</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+
+                    <div class="main-content">
+                        
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card_title">Folder Structure</h4>
+                        <p>Below is the StrikingDash - Bootstrap4 HTML Admin & Dashboard Template folder structure.</p>
+                        <pre>
+├── src
+│   ├── img/
+│   ├── maps ( contains the sourcemap files of scss )
+│   ├── assets
+│       ├── vendor_assets (third party plugins ans assets)
+│       │   ├── css
+│       │   │    ├── bootstrap
+│       │   │    ├── <b>config.bs.scss (This file controls the style configuration of the entire theme)</b>
+│       │   ├── js
+│       │   ├── Fonts
+│       │
+│       ├── theme_assets (Themes own assets)
+│       │   ├── sass (This directry contains all the styles of this theme)
+│       │   ├── js (Custom script and initialization)
+│
+├── .gitignore
+├── gulpfile.js
+├── package.json
+├── package-lock.json
+    </pre>
+                    <p class="alert alert-warning">
+                        <strong class="d-block">Important</strong>
+We do not recommend to change core JS & CSS/SCSS file of Materialize Framework & Template. Always use the custom.css/scss and custom.js files to write your own custom css and js code to avoid template future updates conflicts. You can also create your own custom theme under scss/themes/ folder to customize template using the framework variables.
+                    </p>
+                    </div>
+                </div>
+                <!-- ends: .card -->
+            </div>
+        </div>
+    </div>
+
+                    </div>
+                </div>
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="copyright-text">
+                                    2020 © Aazztech - aazztech.com
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-md-right footer-links">
+                                    <a href="https://aazztech.com/" target="_blank">About</a>
+                                    <a href="https://aazztech.com/" target="_blank">Support</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <!-- ends: .page-content -->
+
+        </div>
+
+        <!-- inject:js-->
+
+        <script src="js/plugins.min.js"></script>
+
+        <script src="js/script.min.js"></script>
+
+        <!-- endinject-->
+    </body>
+</html>
