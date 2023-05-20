@@ -1,5 +1,6 @@
 $(document).ready(function(){
-   
+  let userId = localStorage.getItem("userId");
+  let roleType = localStorage.getItem("roleType");
     getFeedbackData();
 
     function getFeedbackData()
@@ -16,39 +17,95 @@ $(document).ready(function(){
                 .append($("<td>").append($("<div>").addClass("d-flex").append($("<div>").addClass("userDatatable-inline-title").append($("<a>").addClass("text-dark fw-500").append(data[i].mess.messName)))))
                 .append($("<td>").append($("<div>").addClass("d-flex").append($("<div>").addClass("userDatatable-inline-title").append($("<a>").addClass("text-dark fw-500").append(data[i].feedback)))))
                 .append($("<td>").append(`
-                            <i  style="font-size:20px; cursor:pointer; margin:3px;" class="far fa-edit" id="editFeedback" data-toggle="modal" data-target="#editFeedback" data-aid="` +
-                            data[i].internship +
-                            `"></i>
                             <i class="fas fa-trash deleteFeedback" style="font-size:20px; cursor:pointer; margin:3px;" data-aid="` +
-                            data[i].internship +
+                            data[i].feedbackId +
                             `"></i>
                         `)))
             }
     
-             $(".deleteInternship").click(function (e) {
-               deleteInternship($($(this)[0]).data("aid"));
-               e.preventDefault();
-             });
     
-             $("#editInternship").click(function (e) {
-               var tr = e.target.parentNode.parentNode;
-               getOneHostel(tr);
-               e.preventDefault();
-             });
 
 
           }
         );
+
+        $(document).on('click','.deleteFeedback', function(e) {
+          e.preventDefault();
+           deleteFeedback($($(this)[0]).data("aid"));
+           
+         });
+
+
     }
 
-    function getOneHostel(data) {
-        console.log("HostelData:" + data)
+    function deleteFeedback(feedbackId) {
+      $.ajax({
+          url: `http://localhost:8080/feedback/deleteFeedback?feedbackId=${feedbackId}&userId=${userId}&roleType=${roleType}`,
+          type: "POST",
+              success: function (data) {
+                getFeedbackData();
+                  window.location.reload();
+              },
+              error: function () {
+                getFeedbackData();
+                  window.location.reload();
+              },
+          });
+  }
 
-        var id = data.cells[0].textContent;
-        var firstName = data.cells[1].textContent;
 
-        $('h5.modal-title').html('Edit Admin Data: '+firstName);
-        $('#editName').val(firstName);
-    };
+  function getMess()
+  {
+      $.ajax({
+        url: `http://localhost:8080/mess/listOfAllMess`,
+        type: "POST",
+        success: function (data) {
+          $(".messDropdown").empty();
+          $(".messDropdown").append($("<option>").append("Select Option"));
+          for (i = 0; i < data.length; i++) {
+            $(".messDropdown").append(
+              $("<option>", { value: data[i].messId }).text(
+                data[i].messName
+              )
+            );
+         }
+        },
+        error: function () {
+         console.log("Eror");
+        },
+      });
+  }
+
+  $("#dropdownMenuLink").click(function() {
+    getMess();
+})
+
+
+$("#saveFeedback").click(function() {
+  let feedbackId = 0;
+  let feedback = $("#feedback").val();
+  let messId = $(".messDropdown").val();
+
+    
+   let userId = localStorage.getItem("userId");
+   let roleType = localStorage.getItem("roleType");
+   $.ajax({
+      url: `http://localhost:8080/feedback/addOrEditFeedback?feedbackId=${feedbackId}&feedback=${feedback}&messId=${messId}&userId=${userId}&roleType=${roleType}`,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      type: "POST",
+    
+
+      success: function (data) {
+          $("#feedback").val("");
+          getFeedbackData();
+          window.location.reload();
+      },
+      error: function () {
+        console.log("Error");
+      },
+    });
+})
 
 });

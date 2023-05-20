@@ -69,8 +69,9 @@ $(document).ready(function(){
         type: "POST",
         success: function (data) {
           getHostels();
-          window.location.reload();
           $("#editHostelName").val("");
+          window.location.reload();
+          
         },
         error: function () {
           console.log("Error");
@@ -80,29 +81,37 @@ $(document).ready(function(){
 
 
     $("#addHostel").click(function() {
+
       let data = {
         hostelName: $("#addHostelName").val(),
       };
-         let userId = localStorage.getItem("userId")
-         let roleType = localStorage.getItem("roleType")
-         $.ajax({
-          url: `http://localhost:8080/hostel/addHostel?userId=${userId}&roleType=${roleType}`,
-          headers: {
-            "Content-Type": "application/json",
-          },
-          type: "POST",
-          dataType: "json",
-          data: JSON.stringify(data),
-          success: function (data) {
-            $("#addHostelName").val("");
-            //console.log(data);
-            getHostels();
-            window.location.reload();
-          },
-          error: function () {
-            console.log("Error");
-          },
-        });
+      if(data.hostelName == "")
+      {
+        // <button class="btn btn-outline-lighten fs-14 fw-500 btn-lg btn-message" data-messageType="warning" data-messageIcon="exclamation-circle">Warning</button>
+        
+      } else{
+        let userId = localStorage.getItem("userId")
+        let roleType = localStorage.getItem("roleType")
+        $.ajax({
+         url: `http://localhost:8080/hostel/addHostel?userId=${userId}&roleType=${roleType}`,
+         headers: {
+           "Content-Type": "application/json",
+         },
+         type: "POST",
+         dataType: "json",
+         data: JSON.stringify(data),
+         success: function (data) {
+           $("#addHostelName").val("");
+           //console.log(data);
+           getHostels();
+           window.location.reload();
+         },
+         error: function () {
+           console.log("Error");
+         },
+       });
+      }
+      
     })
 
      function deleteHostel(hostelId) {

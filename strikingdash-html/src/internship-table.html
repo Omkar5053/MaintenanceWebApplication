@@ -268,6 +268,7 @@
                                                     </div>
                                                     <div class="modal-body">
                                                         <form action="" method="POST" enctype="multipart/form-data" id="internshipForm">
+                                                            
                                                             <div class="form-group">
                                                                 <label for="registrationNo">Reg No</label>
                                                                 <input type="number" name="registrationNo" class="form-control" id="registrationNo" placeholder="Registration Number" required>
@@ -294,13 +295,13 @@
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="hostel-select">Choose Hostel</label>       
-                                                                            <select name="select-1" id="hostel-select" class="form-control ">
+                                                                            <select class="hostelDropdown" name="select-1" id="hostel-select" class="form-control ">
                                                                                 
                                                                             </select>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="mess-select">Choose Mess</label>       
-                                                                <select name="select-2" id="mess-select" class="form-control ">
+                                                                <select class="messDropdown" name="select-2" id="mess-select" class="form-control ">
                                                                     
                                                                 </select>
                                                             </div>
@@ -315,7 +316,7 @@
                                         </div>
 
 
-                                        <div class="modal fade" id="editInternship" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="editInternshipModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -327,6 +328,9 @@
                                                     <div class="modal-body">
 
                                                         <form action="" method="POST" enctype="multipart/form-data" id="internshipEditForm">
+                                                            <div class="form-group">
+                                                                <input type="hidden" name="internship_id" class="form-control" id="internship_id" required>
+                                                            </div>
                                                             <div class="form-group">
                                                                 <label for="editregistrationNo">Reg No</label>
                                                                 <input type="number" name="editregistrationNo" class="form-control" id="editregistrationNo" placeholder="Registration Number" required>
@@ -352,12 +356,16 @@
                                                                 <input type="number" name="editnoOfDays" class="form-control" id="editnoOfDays" placeholder="No of days" required>
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="edithostelName">Hostel</label>
-                                                                <input type="text" name="edithostelName" class="form-control" id="edithostelName" placeholder="Hostel Name" required>
+                                                                <label for="hostelEdit-select">Choose Hostel</label>       
+                                                                            <select class="hostelDropdown" name="select-1" id="hostelEdit-select" class="form-control ">
+                                                                                
+                                                                            </select>
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="editmess">Mess Name</label>
-                                                                <input type="text" name="editmess" class="form-control" id="editmess" placeholder="Mess Name" required>
+                                                                <label for="messEdit-select">Choose Mess</label>       
+                                                                <select class="messDropdown" name="select-2" id="messEdit-select" class="form-control ">
+                                                                    
+                                                                </select>
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <a  class="btn btn-secondary" data-dismiss="modal">Close</a>
