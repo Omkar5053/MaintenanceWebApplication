@@ -1,5 +1,6 @@
 $(document).ready(function(){
-   
+  let userId = localStorage.getItem("userId");
+  let roleType = localStorage.getItem("roleType");
     getAmbulanceData();
 
     function getAmbulanceData()
@@ -18,39 +19,69 @@ $(document).ready(function(){
                 .append($("<td>").append($("<div>").addClass("d-flex").append($("<div>").addClass("userDatatable-inline-title").append($("<a>").addClass("text-dark fw-500").append(data[i].ambulanceStatus)))))
                 .append($("<td>").append($("<div>").addClass("d-flex").append($("<div>").addClass("userDatatable-inline-title").append($("<a>").addClass("text-dark fw-500").append(data[i].lastMaintenanceDate)))))
                 .append($("<td>").append(`
-                            <i  style="font-size:20px; cursor:pointer; margin:3px;" class="far fa-edit" id="editInternship" data-toggle="modal" data-target="#editInternship" data-aid="` +
-                            data[i].internship +
-                            `"></i>
-                            <i class="fas fa-trash deleteInternship" style="font-size:20px; cursor:pointer; margin:3px;" data-aid="` +
-                            data[i].internship +
+                            <i class="fas fa-trash deleteAmbulance" style="font-size:20px; cursor:pointer; margin:3px;" data-aid="` +
+                            data[i].ambulance_id +
                             `"></i>
                         `)))
             }
-    
-             $(".deleteInternship").click(function (e) {
-               deleteInternship($($(this)[0]).data("aid"));
-               e.preventDefault();
-             });
-    
-             $("#editInternship").click(function (e) {
-               var tr = e.target.parentNode.parentNode;
-               getOneHostel(tr);
-               e.preventDefault();
-             });
-
-
           }
         );
+        $(document).on('click','.deleteAmbulance', function(e) {
+          e.preventDefault();
+           deleteAmbulance($($(this)[0]).data("aid"));
+           
+         });
+
+        //  $(document).on('click','.ambulanceEdit', function(e) {
+        //   e.preventDefault();
+        
+        //   getOneAmbulance($($(this)[0]).data("aid"));
+        //  });
     }
 
-    function getOneHostel(data) {
-        console.log("HostelData:" + data)
+    $("#saveAmbulance").click(function() {
+      let data = {
+        ambulanceName: $("#ambulanceName").val(),
+        licensePlate: $("#licensePlate").val()
+      }
+      
+       let userId = localStorage.getItem("userId");
+       let roleType = localStorage.getItem("roleType");
+       $.ajax({
+          url: `http://localhost:8080/ambulance/add?userId=${userId}&roleType=${roleType}`,
+          headers: {
+            "Content-Type": "application/json",
+          },
+          type: "POST",
+          dataType: "json",
+          data: JSON.stringify(data),
+          success: function (data) {
+           $("#ambulanceName").val("");
+           $("#licensePlate").val("");
+           
+           getAmbulanceData();
+              window.location.reload();
+          },
+          error: function () {
+            console.log("Error");
+          },
+        });
+  })
 
-        var id = data.cells[0].textContent;
-        var firstName = data.cells[1].textContent;
+  function deleteAmbulance(ambulanceId) {
+    $.ajax({
+        url: `http://localhost:8080/ambulance/delete?ambulanceId=${ambulanceId}&userId=${userId}&roleType=${roleType}`,
+        type: "POST",
+            success: function (data) {
+              getAmbulanceData();
+                window.location.reload();
+            },
+            error: function () {
+              getAmbulanceData();
+                window.location.reload();
+            },
+        });
+}
 
-        $('h5.modal-title').html('Edit Admin Data: '+firstName);
-        $('#editName').val(firstName);
-    };
 
 });

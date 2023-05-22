@@ -250,28 +250,116 @@
                             <div class="userDatatable adv-table-table global-shadow border-0 bg-white w-100 adv-table">
                                 <div class="table-responsive">
                                     <div class="adv-table-table__header">
-                                        <h4>Data Table</h4>
-                                        <div class="adv-table-table__button">
+                                        <h4>Mess User Table</h4>
+                                        <!-- <div class="adv-table-table__button">
                                             <div class="dropdown">
-                                                <a class="btn btn-primary" data-toggle="modal" data-target="#modal-basic" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add Feedback</a>
+                                                <a class="btn btn-primary" data-toggle="modal" data-target="#modal-basic" href="#" role="button" id="addNewInternship" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add MessUser</a>
                                             </div>
-                                        </div>
+                                        </div> -->
 
-                                        <div class="modal-basic modal fade show" id="modal-basic" tabindex="-1" role="dialog" aria-hidden="true">
+                                        <!-- <div class="modal fade" id="modal-basic" tabindex="-1" role="dialog" aria-hidden="true">
                                             <div class="modal-dialog modal-md" role="document">
+                                                <div class="modal-content modal-bg-white">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="AddInternshipLabel">Add MessUser</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form action="" method="POST" enctype="multipart/form-data" id="internshipForm">
+                                                            
+                                                            <div class="form-group">
+                                                                <label for="registrationNo">Reg No</label>
+                                                                <input type="number" name="registrationNo" class="form-control" id="registrationNo" placeholder="Registration Number" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="studentName">Student Name</label>
+                                                                <input type="text" name="studentName" class="form-control" id="studentName" placeholder="student name" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="emailId">Email Id</label>
+                                                                <input type="email" name="emailId" class="form-control" id="emailId" placeholder="Email Id" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="phoneNo">Phone Number</label>
+                                                                <input type="number" name="phoneNo" class="form-control" id="phoneNo" placeholder="phone Number" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="purpose">Purpose</label>
+                                                                <input type="text" name="purpose" class="form-control" id="purpose" placeholder="purpose" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="noOfDays">No Of Days</label>
+                                                                <input type="number" name="noOfDays" class="form-control" id="noOfDays" placeholder="No of days" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="hostel-select">Choose Hostel</label>       
+                                                                            <select class="hostelDropdown" name="select-1" id="hostel-select" class="form-control ">
+                                                                                
+                                                                            </select>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="mess-select">Choose Mess</label>       
+                                                                <select class="messDropdown" name="select-2" id="mess-select" class="form-control ">
+                                                                    
+                                                                </select>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <a  class="btn btn-secondary" data-dismiss="modal">Close</a>
+                                                                <button type="button"  id="saveInternship" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> -->
+
+
+                                        <!-- <div class="modal fade" id="editInternshipModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="AddFeedbackLabel">Add FeedBack</h5>
+                                                        <h5 class="modal-title" id="ModalLabel">Edit Internship</h5>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
 
-                                                        <form action="" method="POST" enctype="multipart/form-data" id="feedbackForm">
+                                                        <form action="" method="POST" enctype="multipart/form-data" id="internshipEditForm">
                                                             <div class="form-group">
-                                                                <label for="feedback">Feedback</label>
-                                                                <input type="text" name="feedback" class="form-control" id="feedback" placeholder="Feedback" required>
+                                                                <input type="hidden" name="internship_id" class="form-control" id="internship_id" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="editregistrationNo">Reg No</label>
+                                                                <input type="number" name="editregistrationNo" class="form-control" id="editregistrationNo" placeholder="Registration Number" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="editstudentName">Student Name</label>
+                                                                <input type="text" name="editstudentName" class="form-control" id="editstudentName" placeholder="student name" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="editemailId">Email Id</label>
+                                                                <input type="email" name="editemailId" class="form-control" id="editemailId" placeholder="Email Id" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="editphoneNo">Phone Number</label>
+                                                                <input type="number" name="editphoneNo" class="form-control" id="editphoneNo" placeholder="phone Number" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="editpurpose">Purpose</label>
+                                                                <input type="text" name="editpurpose" class="form-control" id="editpurpose" placeholder="purpose" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="editnoOfDays">No Of Days</label>
+                                                                <input type="number" name="editnoOfDays" class="form-control" id="editnoOfDays" placeholder="No of days" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="hostelEdit-select">Choose Hostel</label>       
+                                                                            <select class="hostelDropdown" name="select-1" id="hostelEdit-select" class="form-control ">
+                                                                                
+                                                                            </select>
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="messEdit-select">Choose Mess</label>       
@@ -281,16 +369,14 @@
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <a  class="btn btn-secondary" data-dismiss="modal">Close</a>
-                                                                <button type="button"  id="saveFeedback" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+                                                                <button type="button"  id="editInternship" class="btn btn-primary" data-dismiss="modal">Save changes</button>
                                                             </div>
                                                         </form>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
 
-
-                    
 
                                     </div>
                                     <div id="filter-form-container"></div>
@@ -301,52 +387,28 @@
                                                 <span class="userDatatable-title">id</span>
                                             </th>
                                             <th>
-                                                <span class="userDatatable-title">User Name</span>
+                                                <span class="userDatatable-title">Student Name</span>
+                                            </th>
+                                            <th>
+                                                <span class="userDatatable-title">Student Type</span>
+                                            </th>
+                                            <th>
+                                                <span class="userDatatable-title">Food Type</span>
+                                            </th>
+                
+                                            <th>
+                                                <span class="userDatatable-title">Hostel Name</span>
                                             </th>
                                             <th>
                                                 <span class="userDatatable-title">Mess Name</span>
                                             </th>
-                                            <th>
-                                                <span class="userDatatable-title">Feedback</span>
-                                            </th>
+                                        
                                             <th>
                                                 <span class="userDatatable-title">Action</span>
                                             </th>
                                         </tr>
                                         </thead>
-                                        <tbody id="feedbackTableDataBody">
-
-                                        <!-- <tr>
-                                            <td>
-                                                <div class="userDatatable-content">01</div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex">
-                                                    <div class="userDatatable-inline-title">
-                                                        <a href="#" class="text-dark fw-500">
-                                                            <h6>Kellie Marquot </h6>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
-                                                    <li>
-                                                        <a href="#" class="view">
-                                                            <span data-feather="eye"></span></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="edit">
-                                                            <span data-feather="edit"></span></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="remove">
-                                                            <span data-feather="trash-2"></span></a>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr> -->
-
+                                        <tbody id="internshipTableDataBody">
                                         </tbody>
                                     </table>
                                 </div>
@@ -433,7 +495,7 @@
 <script src="assets/theme_assets/js/main.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-<script src="scripts/feedback.js"></script>
+<script src="scripts/messuser.js"></script>
 <!-- endinject-->
 </body>
 

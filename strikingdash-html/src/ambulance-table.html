@@ -253,7 +253,7 @@
                                         <h4>Data Table</h4>
                                         <div class="adv-table-table__button">
                                             <div class="dropdown">
-                                                <a class="btn btn-primary" data-toggle="modal" data-target="#modal-basic" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add Hostel</a>
+                                                <a class="btn btn-primary" data-toggle="modal" data-target="#modal-basic" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add Ambulance</a>
                                             </div>
                                         </div>
 
@@ -261,51 +261,37 @@
                                             <div class="modal-dialog modal-md" role="document">
                                                 <div class="modal-content modal-bg-white">
                                                     <div class="modal-header">
-                                                        <h6 class="modal-title">Add New Mess</h6>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span data-feather="x"></span></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <label>Hostel Name: <input id="hostelName"></label>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-primary btn-sm">
-                                                            Save Hostel
-                                                        </button>
-                                                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">
-                                                            Cancel
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="modal fade" id="editHostel" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="ModalLabel">Modal title</h5>
+                                                        <h5 class="modal-title" id="AddAmbulanceLabel">Add Ambulance</h5>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-
-                                                        <form action="" method="POST" enctype="multipart/form-data"  method="POST" id="ModalForm">
+                                                        <form action="" method="POST" enctype="multipart/form-data" id="ambulanceForm">
+                                                            
                                                             <div class="form-group">
-                                                                <label for="editHostelName">Mess Name</label>
-                                                                <input type="text" name="name" class="form-control" id="editHostelName" placeholder="Hostel Name" required>
+                                                                <label for="ambulanceName">ambulance name</label>
+                                                                <input type="text" name="ambulanceName" class="form-control" id="ambulanceName" placeholder="ambulance name" required>
                                                             </div>
+                                                            <div class="form-group">
+                                                                <label for="licensePlate">licensePlate</label>
+                                                                <input type="text" name="licensePlate" class="form-control" id="licensePlate" placeholder="license plate" required>
+                                                            </div>
+                                                            <!-- <div class="form-group">
+                                                                <label for="lastMaintenanceDate">last Maintenance Date</label>
+                                                                <input type="date" name="lastMaintenanceDate" class="form-control" id="lastMaintenanceDate" placeholder="last Maintenance Date" required>
+                                                            </div> -->
+                                                         
+                                
                                                             <div class="modal-footer">
                                                                 <a  class="btn btn-secondary" data-dismiss="modal">Close</a>
-                                                                <button type="button"  id="saveModalButton" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+                                                                <button type="button"  id="saveAmbulance" class="btn btn-primary" data-dismiss="modal">Save changes</button>
                                                             </div>
                                                         </form>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-
 
                                     </div>
                                     <div id="filter-form-container"></div>
