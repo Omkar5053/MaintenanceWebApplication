@@ -1,14 +1,10 @@
 $(document).ready(function(){
-  let userId = localStorage.getItem("userId");
-  let roleType = localStorage.getItem("roleType");
-  let username = localStorage.getItem("username");
-  const user = document.getElementById("username");
-  user.innerHTML = username;
-  const role = document.getElementById("role");
-  role.innerHTML = roleType;
+
+    let userId = localStorage.getItem("userId");
+    let roleType = localStorage.getItem("roleType");
+   
     getMaintenanceData();
 
-   
     function getMaintenanceData()
     {
         $.post(

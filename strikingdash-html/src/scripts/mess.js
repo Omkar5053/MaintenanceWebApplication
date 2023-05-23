@@ -1,8 +1,13 @@
 $(document).ready(function(){
-   
+  let userId = localStorage.getItem("userId");
+  let roleType = localStorage.getItem("roleType");
+  let username = localStorage.getItem("username");
+  const user = document.getElementById("username");
+  user.innerHTML = username;
+  const role = document.getElementById("role");
+  role.innerHTML = roleType;
     getMess();
-    let userId = localStorage.getItem("userId")
-    let roleType = localStorage.getItem("roleType")
+    
 
     function getMess()
     {

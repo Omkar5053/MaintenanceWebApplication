@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>StrikingDash</title>
+    <title>Maintainance Web</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -887,11 +887,24 @@
                                         <img src="img/author-nav.jpg" alt="" class="rounded-circle">
                                     </div>
                                     <div>
-                                        <h6>Abdullah Bin Talha</h6>
-                                        <span>UI Designer</span>
+                                        <h6 id="username"></h6>
+                                        <span id="role"></span>
                                     </div>
                                 </div>
-
+                                <div class="nav-author__options">
+                                    <ul>
+                                        <li>
+                                            <a href="">
+                                                <span data-feather="user"></span> Profile</a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <span data-feather="settings"></span> Settings</a>
+                                        </li>
+                                    </ul>
+                                    <a href="" class="nav-author__signout">
+                                        <span data-feather="log-out"></span> Sign Out</a>
+                                </div>
                             </div>
                             <!-- ends: .dropdown-wrapper -->
                         </div>
@@ -919,11 +932,11 @@
                         <li class="menu-title">
                             <span>Main menu</span>
                         </li>
-                        <li class="has-child">
+                        <li>
                             <a href="#" class="">
                                 <span data-feather="home" class="nav-icon"></span>
                                 <span class="menu-text">Dashboard</span>
-                                <span class="toggle-icon"></span>
+                
                             </a>    
                         </li>
                         <li class="menu-title m-top-30">
@@ -974,18 +987,6 @@
                             <a href="maintenance-table.html" class="">
                                 <span data-feather="calendar" class="nav-icon"></span>
                                 <span class="menu-text">Maintenance</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="login.html" class="">
-                                <span data-feather="user" class="nav-icon"></span>
-                                <span class="menu-text">Log In</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="sign-up.html" class="">
-                                <span data-feather="user-plus" class="nav-icon"></span>
-                                <span class="menu-text">Sign Up</span>
                             </a>
                         </li>
                     </ul>

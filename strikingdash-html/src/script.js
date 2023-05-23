@@ -12,6 +12,7 @@ $(document).ready(function () {
         success: function (data) {
           localStorage.setItem("userId", data.sessionId);
           localStorage.setItem("roleType", data.roleName);
+          localStorage.setItem("username", data.username);
           $("#username").val("");
           $("#password").val("");
           $(location).attr("href", "menu.html");

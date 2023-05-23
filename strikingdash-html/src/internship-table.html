@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>StrikingDash</title>
+    <title>Maintainance Web</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -105,9 +105,23 @@
                                     <img src="img/author-nav.jpg" alt="" class="rounded-circle">
                                 </div>
                                 <div>
-                                    <h6>Abdullah Bin Talha</h6>
-                                    <span>UI Designer</span>
+                                    <h6 id="username"></h6>
+                                    <span id="role"></span>
                                 </div>
+                            </div>
+                            <div class="nav-author__options">
+                                <ul>
+                                    <li>
+                                        <a href="">
+                                            <span data-feather="user"></span> Profile</a>
+                                    </li>
+                                    <li>
+                                        <a href="">
+                                            <span data-feather="settings"></span> Settings</a>
+                                    </li>
+                                </ul>
+                                <a href="" class="nav-author__signout">
+                                    <span data-feather="log-out"></span> Sign Out</a>
                             </div>
                         </div>
                         <!-- ends: .dropdown-wrapper -->
@@ -136,6 +150,13 @@
 
                     <li class="menu-title m-top-30">
                         <span>Mess Applications</span>
+                    </li>
+                    <li>
+                        <a href="#" class="">
+                            <span data-feather="home" class="nav-icon"></span>
+                            <span class="menu-text">Dashboard</span>
+            
+                        </a>    
                     </li>
                     <li>
                         <a href="hostel-table.html" class="">
@@ -186,55 +207,6 @@
                         </a>
                     </li>
 
-                    <li class="has-child">
-                        <a href="#" class="">
-                            <span data-feather="cpu" class="nav-icon"></span>
-                            <span class="menu-text">Table</span>
-                            <span class="toggle-icon"></span>
-                        </a>
-                        <ul>
-                            <li>
-                                <a href="basic-table.html" class="">Basic
-                                    Table</a>
-                            </li>
-                            <li>
-                                <a href="datatable.html" class="">Data Table</a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="search.html" class="">
-                            <span data-feather="search" class="nav-icon"></span>
-                            <span class="menu-text">Search Results</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="blank.html" class="">
-                            <span data-feather="circle" class="nav-icon"></span>
-                            <span class="menu-text">Blank Page</span>
-                            <span class="badge badge-success menuItem">New</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="dynamic-table.html" class="">
-                            <span data-feather="database" class="nav-icon"></span>
-                            <span class="menu-text">Dynamic Table</span>
-                            <span class="badge badge-success menuItem">New</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="login.html" class="">
-                            <span data-feather="user" class="nav-icon"></span>
-                            <span class="menu-text">Log In</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="sign-up.html" class="">
-                            <span data-feather="user-plus" class="nav-icon"></span>
-                            <span class="menu-text">Sign Up</span>
-                        </a>
-                    </li>
                 </ul>
             </div>
         </div>
