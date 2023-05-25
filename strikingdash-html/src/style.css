@@ -106,6 +106,40 @@ NB: this file contains the list of components/scss partial along with the style.
 
   05. RESPONSIVE CSS
 ***************************/
+
+.content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 200px;
+            text-align: center;
+            background-color: #e8eae6;
+            box-sizing: border-box;
+            padding: 10px;
+            z-index: 100;
+            display: none;
+            /*to hide popup initially*/
+        }
+
+        .close-btn {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            background-color: black;
+            color: white;
+            padding: 2px;
+            padding-left: 4px;
+        }
+
+        #msgDiv {
+           display: flex;
+           flex-direction: row;
+           justify-content: center;
+           text-align: center;
+        }
+
 .m-top-0 {
   margin-top: 0px;
 }

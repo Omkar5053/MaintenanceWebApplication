@@ -221,6 +221,17 @@
 
                             <div class="userDatatable adv-table-table global-shadow border-0 bg-white w-100 adv-table">
                                 <div class="table-responsive">
+                                    <div class="content center" style="display: none;" role="dialog">
+                                        <div id="togglePopupCloseBtn" class="close-btn">
+                                            ×
+                                        </div>
+                                        <h3 style="background-color:red">Error</h3>
+                                        <div id="msgDiv">
+                                            <p id="errorMessage"></p>
+                                        </div>
+
+<!--                                        <button id="togglePopupCloseBtn" class="close-btn">Close</button>-->
+                                    </div>
                                     <div class="adv-table-table__header">
                                         <h4>Hostel Table</h4>
                                         <div class="adv-table-table__button">
@@ -248,7 +259,7 @@
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <a  class="btn btn-secondary" data-dismiss="modal">Close</a>
-                                                                <button type="button"  id="addHostel" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+                                                                <button type="button"  id="addHostel" class="btn btn-primary  btn-message" data-messageType="danger" data-messageIcon="times-circle" data-dismiss="modal">Save changes</button>
                                                             </div>
                                                         </form>
                                                     </div>
@@ -320,7 +331,7 @@
             </div>
         </div>
 
-        <div class="message-wrapper"></div>
+        <div class="message-wrapper" id="popup-message"></div>
     </div>
     
     <footer class="footer-wrapper">
@@ -378,7 +389,7 @@
 <script src="assets/vendor_assets/js/leaflet.js"></script>
 <script src="assets/vendor_assets/js/leaflet.markercluster.js"></script>
 <script src="assets/vendor_assets/js/loader.js"></script>
-<script src="assets/vendor_assets/js/message.js"></script>
+<!-- <script src="assets/vendor_assets/js/message.js"></script> -->
 <script src="assets/vendor_assets/js/moment.js"></script>
 <script src="assets/vendor_assets/js/muuri.min.js"></script>
 <script src="assets/vendor_assets/js/notification.js"></script>
