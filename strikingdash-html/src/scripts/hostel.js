@@ -11,7 +11,7 @@ $(document).ready(function () {
   getHostels();
   function getHostels() {
     $.ajax({
-      url: `http://localhost:8080/hostel/getAllHostels?userId=${userId}&roleType=${roleType}`,
+      url: `http://localhost:8080/hostel/getAllHostels?userId=${userId}`,
       type: "POST",
       beforeSend: function () {},
       success: function (data) {
@@ -22,6 +22,7 @@ $(document).ready(function () {
         else{
           $("#hostelTableDataBody").empty();
           for (i = 0; i < data.listOfData.length; i++) {
+            
             $("#hostelTableDataBody").append(
               $("<tr>")
                 .append(
@@ -45,9 +46,7 @@ $(document).ready(function () {
                       `" data-aid="` +
                       data.listOfData[i].hostel_id +
                       `"></i>
-                         <i class="fas fa-trash deleteHostel" style="font-size:20px; cursor:pointer; margin:3px;" data-aid="` +
-                      data.listOfData[i].hostel_id +
-                      `"></i>
+          
                    `
                   )
                 )
@@ -68,13 +67,13 @@ $(document).ready(function () {
 
     $(document).on("click", ".editHostel", function (e) {
       e.preventDefault();
-      let id = $(this).data("aid");
-      let name = $(this).data("name");
-      $("#editHostelName").val(name);
-      $("#h_id").val(id);
+      // let id = $(this).data("aid");
+      // let name = $(this).data("name");
+      // $("#editHostelName").val(name);
+      // $("#h_id").val(id);
       $("#edit-modal-basic").modal("show");
-      // getOneHostel($($(this)[0]).data("aid"));
-      // e.preventDefault();
+      getOneHostel($($(this)[0]).data("aid"));
+      
     });
   }
 
@@ -83,7 +82,11 @@ $(document).ready(function () {
       url: `http://localhost:8080/hostel/getBy?hostel_id=${id}`,
       method: "POST",
       success: function (data) {
+        console.log(data)
         $("#editHostelName").val(data.hostelName);
+        $("#editNoOfFloors").val(data.noOfFloors);
+        $("#editNoOfRoomPerFloor").val(data.noOfRoomPerFloor);
+        $("#editNoOfStudentPerRoom").val(data.noOfStudentPerRoom);
         $("#h_id").val(data.hostel_id);
       },
     });
@@ -91,9 +94,12 @@ $(document).ready(function () {
 
   $("#editHostel").on("click", function (e) {
     let hostelName = $("#editHostelName").val();
+    let noOfFloors = $("#editNoOfFloors").val();
+    let noOfRoomPerFloor = $("#editNoOfRoomPerFloor").val();
+    let noOfStudentPerRoom = $("#editNoOfStudentPerRoom").val();
     let hostel_id = $("#h_id").val();
     $.ajax({
-      url: `http://localhost:8080/hostel/updateHostel?hostel_id=${hostel_id}&hostelName=${hostelName}&userId=${userId}&roleType=${roleType}`,
+      url: `http://localhost:8080/hostel/addOrUpdateHostel?hostel_id=${hostel_id}&hostelName=${hostelName}&noOfFloors=${noOfFloors}&noOfRoomPerFloor=${noOfRoomPerFloor}&noOfStudentPerRoom=${noOfStudentPerRoom}&userId=${userId}`,
       headers: {
         "Content-Type": "application/json",
       },
@@ -114,11 +120,13 @@ $(document).ready(function () {
        alert("Please enter the hostel name")
     } else {
       let userId = localStorage.getItem("userId");
-      let roleType = localStorage.getItem("roleType");
       let hostelName = $("#addHostelName").val();
+      let noOfFloors = $("#addNoOfFloors").val();
+      let noOfRoomPerFloor = $("#addNoOfRoomPerFloor").val();
+      let noOfStudentPerRoom = $("#addNoOfStudentPerRoom").val();
       let hostelId = 0
       $.ajax({
-        url: `http://localhost:8080/hostel/addHostel?userId=${userId}&roleType=${roleType}&hostelName=${hostelName}&hostelId=${hostelId}`,
+        url: `http://localhost:8080/hostel/addOrUpdateHostel?hostel_id=${hostelId}&hostelName=${hostelName}&noOfFloors=${noOfFloors}&noOfRoomPerFloor=${noOfRoomPerFloor}&noOfStudentPerRoom=${noOfStudentPerRoom}&userId=${userId}`,
         headers: {
           "Content-Type": "application/json",
         },
@@ -128,6 +136,9 @@ $(document).ready(function () {
           $("#popup-message").hide();
           console.log(data);
           $("#addHostelName").val("");
+          $("#addNoOfFloors").val("");
+          $("#addNoOfRoomPerFloor").val("");
+          $("#addNoOfStudentPerRoom").val("");
           getHostels();
           window.location.reload();
         },

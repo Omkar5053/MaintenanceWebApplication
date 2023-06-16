@@ -218,8 +218,6 @@
                             <span class="menu-text">Maintenance</span>
                         </a>
                     </li>
-
-             
                 </ul>
             </div>
         </div>
@@ -227,9 +225,6 @@
 
     <div class="contents">
         <div class="container-fluid">
-            <div style="display: none;" id="errorMessageDialog">
-                <p id="errorMessage"></p>
-            </div>
             <div class="row">
                 <div class="col-lg-12 mb-30">
                     <div class="card mt-30">
@@ -238,50 +233,43 @@
                             <div class="userDatatable adv-table-table global-shadow border-0 bg-white w-100 adv-table">
                                 <div class="table-responsive">
                                     <div class="adv-table-table__header">
-                                        <h4>Maintenance Table</h4>
+                                        <h4>Data Table</h4>
+                                        <div class="adv-table-table__button">
+                                            <div class="dropdown">
+                                                <a class="btn btn-primary" data-toggle="modal" data-target="#modal-basic" href="#" role="button" id="addNewRequest" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Add Request</a>
+                                            </div>
+                                        </div>
 
-                                        <div class="modal fade" id="editMaintenanceModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
+                                        <div class="modal-basic modal fade show" id="modal-basic" tabindex="-1" role="dialog" aria-hidden="true">
+                                            <div class="modal-dialog modal-md" role="document">
+                                                <div class="modal-content modal-bg-white">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="ModalLabel">Edit Maintenance</h5>
+                                                        <h5 class="modal-title" id="AddAmbulanceLabel">Add Request</h5>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-
-                                                        <form action="" method="POST" enctype="multipart/form-data" id="maintenanceEditForm">
+                                                        <form action="" method="POST" enctype="multipart/form-data" id="ambulanceForm">
+                                                            
                                                             <div class="form-group">
-                                                                <input type="hidden" name="maintenance_id" class="form-control" id="maintenance_id" required>
+                                                                <label for="hostelEdit-select">Choose Hostel</label>       
+                                                                            <select class="hostelDropdown" name="select-1" id="hostelEdit-select" class="form-control ">
+                                                                                
+                                                                            </select>
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="editUserName">User Name</label>
-                                                                <input type="text" name="editUserName" class="form-control" id="editUserName" placeholder="User name" readonly>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="editHostelName">Hostel Name</label>
-                                                                <input type="text" name="editHostelName" class="form-control" id="editHostelName" placeholder="Hostel Name" readonly>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="editDescription">Description</label>
-                                                                <input type="text" name="editDescription" class="form-control" id="editDescription" placeholder="Description" readonly>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="maintenanceStatus-Select">Maintenance Status</label>
-                                                                <select class="maintenanceStatusDropdown" name="select-1" id="maintenanceStatus-Select" class="form-control ">
-
+                                                                <label for="messEdit-select">Choose Ambulance</label>       
+                                                                <select class="messDropdown" name="select-2" id="messEdit-select" class="form-control ">
+                                                                    
                                                                 </select>
                                                             </div>
-                                                            <div class="form-group">
-                                                                <label for="maintenanceType-select">Maintenance Type</label>
-                                                                <select class="maintenanceTypeDropdown" name="select-2" id="maintenanceType-select" class="form-control ">
-
-                                                                </select>
-                                                            </div>
+                                                            
+                                                    
+                                
                                                             <div class="modal-footer">
                                                                 <a  class="btn btn-secondary" data-dismiss="modal">Close</a>
-                                                                <button type="button"  id="editMaintenance" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+                                                                <button type="button"  id="saveAmbulance" class="btn btn-primary" data-dismiss="modal">Save changes</button>
                                                             </div>
                                                         </form>
                                                     </div>
@@ -291,7 +279,7 @@
 
                                     </div>
                                     <div id="filter-form-container"></div>
-                                    <table class="table mb-0 table-borderless adv-table" id="hostelTableData" data-sorting="true" data-filter-container="#filter-form-container" data-paging-current="1" data-paging-position="right" data-paging-size="10">
+                                    <table class="table mb-0 table-borderless adv-table" data-sorting="true" data-filter-container="#filter-form-container" data-paging-current="1" data-paging-position="right" data-paging-size="10">
                                         <thead>
                                         <tr class="userDatatable-header">
                                             <th>
@@ -304,23 +292,20 @@
                                                 <span class="userDatatable-title">Hostel Name</span>
                                             </th>
                                             <th>
-                                                <span class="userDatatable-title">Maintenance Type</span>
+                                                <span class="userDatatable-title">Ambulance Name</span>
                                             </th>
                                             <th>
-                                                <span class="userDatatable-title">Description</span>
+                                                <span class="userDatatable-title">Status</span>
                                             </th>
                                             <th>
-                                                <span class="userDatatable-title">Date</span>
-                                            </th>
-                                            <th>
-                                                <span class="userDatatable-title">Maintenance Status</span>
+                                                <span class="userDatatable-title">Request Date</span>
                                             </th>
                                             <th>
                                                 <span class="userDatatable-title">Action</span>
                                             </th>
                                         </tr>
                                         </thead>
-                                        <tbody id="maintenanceTableDataBody">
+                                        <tbody id="ambulanceTableDataBody">
 
                                         <!-- <tr>
                                             <td>
@@ -437,9 +422,7 @@
 <script src="assets/theme_assets/js/jvectormap-init.js"></script>
 <script src="assets/theme_assets/js/leaflet-init.js"></script>
 <script src="assets/theme_assets/js/main.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-<script src="scripts/maintenance.js"></script>
+<script src="scripts/ambulanceuser.js"></script>
 <!-- endinject-->
 </body>
 

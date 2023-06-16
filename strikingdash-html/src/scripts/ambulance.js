@@ -11,22 +11,18 @@ $(document).ready(function(){
     function getAmbulanceData()
     {
         $.post(
-          "http://localhost:8080/ambulance/listAllAmbulances",
+          `http://localhost:8080/ambulance/listAllAmbulances?userId=${userId}`,
           function (data, status) {
             console.log(data);
 
-            for (i = 0; i < data.length; i++) {
+            for (i = 0; i < data.listOfData.length; i++) {
                 $("#ambulanceTableDataBody").append($("<tr>")
                 .append($("<td>").append($("<div>").addClass("userDatatable-content").append(i+1)))
-                .append($("<td>").append($("<div>").addClass("d-flex").append($("<div>").addClass("userDatatable-inline-title").append($("<a>").addClass("text-dark fw-500").append(data[i].user.userName)))))
-                .append($("<td>").append($("<div>").addClass("d-flex").append($("<div>").addClass("userDatatable-inline-title").append($("<a>").addClass("text-dark fw-500").append(data[i].ambulanceName)))))
-                .append($("<td>").append($("<div>").addClass("d-flex").append($("<div>").addClass("userDatatable-inline-title").append($("<a>").addClass("text-dark fw-500").append(data[i].licensePlate)))))
-                .append($("<td>").append($("<div>").addClass("d-flex").append($("<div>").addClass("userDatatable-inline-title").append($("<a>").addClass("text-dark fw-500").append(data[i].ambulanceStatus)))))
-                .append($("<td>").append($("<div>").addClass("d-flex").append($("<div>").addClass("userDatatable-inline-title").append($("<a>").addClass("text-dark fw-500").append(data[i].lastMaintenanceDate)))))
-                .append($("<td>").append(`
-                            <i class="fas fa-trash deleteAmbulance" style="font-size:20px; cursor:pointer; margin:3px;" data-aid="` +
-                            data[i].ambulance_id +
-                            `"></i>
+                .append($("<td>").append($("<div>").addClass("d-flex").append($("<div>").addClass("userDatatable-inline-title").append($("<a>").addClass("text-dark fw-500").append(data.listOfData[i].ambulanceName)))))
+                .append($("<td>").append($("<div>").addClass("d-flex").append($("<div>").addClass("userDatatable-inline-title").append($("<a>").addClass("text-dark fw-500").append(data.listOfData[i].licensePlate)))))
+                .append($("<td>").append(
+                  `
+                    
                         `)))
             }
           }
@@ -36,34 +32,22 @@ $(document).ready(function(){
            deleteAmbulance($($(this)[0]).data("aid"));
            
          });
-
-        //  $(document).on('click','.ambulanceEdit', function(e) {
-        //   e.preventDefault();
-        
-        //   getOneAmbulance($($(this)[0]).data("aid"));
-        //  });
     }
 
     $("#saveAmbulance").click(function() {
-      let data = {
-        ambulanceName: $("#ambulanceName").val(),
-        licensePlate: $("#licensePlate").val()
-      }
       
-       let userId = localStorage.getItem("userId");
-       let roleType = localStorage.getItem("roleType");
+       let ambulanceName =  $("#ambulanceName").val()
+       let licensePlate = $("#licensePlate").val()
+       let ambulance_id = 0
+     
+      
        $.ajax({
-          url: `http://localhost:8080/ambulance/add?userId=${userId}&roleType=${roleType}`,
-          headers: {
-            "Content-Type": "application/json",
-          },
+          url: `http://localhost:8080/ambulance/addOrEditAmbulance?ambulance_id=${ambulance_id}&ambulanceName=${ambulanceName}&licensePlate=${licensePlate}&userId=${userId}`,
           type: "POST",
-          dataType: "json",
-          data: JSON.stringify(data),
           success: function (data) {
            $("#ambulanceName").val("");
            $("#licensePlate").val("");
-           
+          
            getAmbulanceData();
               window.location.reload();
           },
@@ -90,3 +74,9 @@ $(document).ready(function(){
 
 
 });
+
+
+
+// <i class="fas fa-trash deleteAmbulance" style="font-size:20px; cursor:pointer; margin:3px;" data-aid="` +
+//                             data.listOfData[i].ambulance_id +
+//                             `"></i>

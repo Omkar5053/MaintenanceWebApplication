@@ -21,11 +21,7 @@ $(document).ready(function(){
                 .append($("<td>").append($("<div>").addClass("d-flex").append($("<div>").addClass("userDatatable-inline-title").append($("<a>").addClass("text-dark fw-500").append(data[i].user.userName)))))
                 .append($("<td>").append($("<div>").addClass("d-flex").append($("<div>").addClass("userDatatable-inline-title").append($("<a>").addClass("text-dark fw-500").append(data[i].mess.messName)))))
                 .append($("<td>").append($("<div>").addClass("d-flex").append($("<div>").addClass("userDatatable-inline-title").append($("<a>").addClass("text-dark fw-500").append(data[i].feedback)))))
-                .append($("<td>").append(`
-                            <i class="fas fa-trash deleteFeedback" style="font-size:20px; cursor:pointer; margin:3px;" data-aid="` +
-                            data[i].feedbackId +
-                            `"></i>
-                        `)))
+                .append($("<td>").append()))
             }
     
     
@@ -114,3 +110,12 @@ $("#saveFeedback").click(function() {
 })
 
 });
+
+
+
+
+// `
+//                             <i class="fas fa-trash deleteFeedback" style="font-size:20px; cursor:pointer; margin:3px;" data-aid="` +
+//                             data[i].feedbackId +
+//                             `"></i>
+//                         `

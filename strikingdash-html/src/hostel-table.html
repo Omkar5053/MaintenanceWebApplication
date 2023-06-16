@@ -152,7 +152,7 @@
                         <span>Mess Applications</span>
                     </li>
                     <li>
-                        <a href="#" class="">
+                        <a href="menu.html" class="">
                             <span data-feather="home" class="nav-icon"></span>
                             <span class="menu-text">Dashboard</span>
             
@@ -165,7 +165,13 @@
                         </a>
                     </li>
                     <li>
-                        <a href="hostelAttendance-table.html" class="">
+                        <a href="student-table.html" class="">
+                            <span data-feather="mail" class="nav-icon"></span>
+                            <span class="menu-text">Student</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="hostel-attendance.html" class="">
                             <span data-feather="message-square" class="nav-icon"></span>
                             <span class="menu-text">Hostel Attendance</span>
                         </a>
@@ -198,6 +204,12 @@
                         <a href="ambulance-table.html" class="">
                             <span data-feather="folder" class="nav-icon"></span>
                             <span class="menu-text">Ambulance</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="ambulance-user.html" class="">
+                            <span data-feather="aperture" class="nav-icon"></span>
+                            <span class="menu-text">Ambulance User</span>
                         </a>
                     </li>
                     <li>
@@ -257,6 +269,21 @@
                                                                 <input type="text" name="addHostelName" class="form-control" id="addHostelName" placeholder="Hostel Name" required>
                                         
                                                             </div>
+                                                            <div class="form-group">
+                                                                <label for="addNoOfFloors">No of Floors</label>
+                                                                <input type="number" name="addNoOfFloors" class="form-control" id="addNoOfFloors" placeholder="Enter total number of Floors" required>
+                                        
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="addNoOfRoomPerFloor">Number of Rooms per floor</label>
+                                                                <input type="number" name="addNoOfRoomPerFloor" class="form-control" id="addNoOfRoomPerFloor" placeholder="Enter Number of Rooms" required>
+                                        
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="addNoOfStudentPerRoom">Number of Students Capacity per room</label>
+                                                                <input type="number" name="addNoOfStudentPerRoom" class="form-control" id="addNoOfStudentPerRoom" placeholder="Enter Number of Students per room" required>
+                                        
+                                                            </div>
                                                             <div class="modal-footer">
                                                                 <a  class="btn btn-secondary" data-dismiss="modal">Close</a>
                                                                 <button type="button"  id="addHostel" class="btn btn-primary  btn-message" data-messageType="danger" data-messageIcon="times-circle" data-dismiss="modal">Save changes</button>
@@ -283,6 +310,21 @@
                                                             <div class="form-group">
                                                                 <label for="addHostelName">Hostel Name</label>
                                                                 <input type="text" name="hostelName" class="form-control" id="editHostelName" placeholder="Hostel Name" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="editNoOfFloors">No of Floors</label>
+                                                                <input type="number" name="editNoOfFloors" class="form-control" id="editNoOfFloors" placeholder="Enter total number of Floors" required>
+                                        
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="editNoOfRoomPerFloor">Number of Rooms per Floor</label>
+                                                                <input type="number" name="editNoOfRoomPerFloor" class="form-control" id="editNoOfRoomPerFloor" placeholder="Enter Number of Rooms" required>
+                                        
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="editNoOfStudentPerRoom">Number of Students Capacity per room</label>
+                                                                <input type="number" name="editNoOfStudentPerRoom" class="form-control" id="editNoOfStudentPerRoom" placeholder="Enter Number of Students per room" required>
+                                        
                                                             </div>
                                                             <div class="form-group">
                                                 

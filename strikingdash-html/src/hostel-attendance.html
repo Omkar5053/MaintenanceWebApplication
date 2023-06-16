@@ -165,13 +165,19 @@
                         </a>
                     </li>
                     <li>
+                        <a href="hostel-attendance.html" class="">
+                            <span data-feather="message-square" class="nav-icon"></span>
+                            <span class="menu-text">Hostel Attendance</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="student-table.html" class="">
                             <span data-feather="mail" class="nav-icon"></span>
                             <span class="menu-text">Student</span>
                         </a>
                     </li>
                     <li>
-                        <a href="hostel-attendance.html" class="">
+                        <a href="chat.html" class="">
                             <span data-feather="message-square" class="nav-icon"></span>
                             <span class="menu-text">Hostel Attendance</span>
                         </a>
@@ -219,7 +225,6 @@
                         </a>
                     </li>
 
-             
                 </ul>
             </div>
         </div>
@@ -227,132 +232,154 @@
 
     <div class="contents">
         <div class="container-fluid">
-            <div style="display: none;" id="errorMessageDialog">
-                <p id="errorMessage"></p>
-            </div>
             <div class="row">
                 <div class="col-lg-12 mb-30">
                     <div class="card mt-30">
                         <div class="card-body">
 
-                            <div class="userDatatable adv-table-table global-shadow border-0 bg-white w-100 adv-table">
+                            <div class="userDatatable adv-table-table global-shadow border-0 bg-white w-100">
                                 <div class="table-responsive">
                                     <div class="adv-table-table__header">
-                                        <h4>Maintenance Table</h4>
+                                        <h4>Hostel Attendance</h4>
+                                        
+                                        <!-- <div class="modal fade" id="modal-basic" tabindex="-1" role="dialog" aria-hidden="true">
+                                            <div class="modal-dialog modal-md" role="document">
+                                                <div class="modal-content modal-bg-white">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="AddInternshipLabel">Assign Hostel to Student</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form action="" method="POST" enctype="multipart/form-data" id="internshipForm">
+ 
+                                                            <div class="form-group">
+                                                                <label for="hostel-select">Choose Hostel</label>       
+                                                                            <select class="hostelDropdown" name="select-1" id="hostel-select" class="form-control ">
+                                                                                
+                                                                            </select>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="floor-select">Choose Floor Number</label>       
+                                                                            <select class="floorDropdown" name="floor-select" id="floor-select" class="form-control ">
+                                                                                
+                                                                            </select>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="room-select">Choose Room Number</label>       
+                                                                            <select class="roomDropdown" name="room-select" id="room-select" class="form-control ">
+                                                                                
+                                                                            </select>
+                                                            </div>
+                                                            <div class="form-group">
+                                    
+                                                                <input type="hidden" name="u_id" class="form-control" id="u_id" required>
+                                                            </div>
+                                                           
+                                                            <div class="modal-footer">
+                                                                <a  class="btn btn-secondary" data-dismiss="modal">Close</a>
+                                                                <button type="button"  id="saveStudent" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> -->
 
-                                        <div class="modal fade" id="editMaintenanceModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+
+                                        <!-- <div class="modal fade" id="editInternshipModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="ModalLabel">Edit Maintenance</h5>
+                                                        <h5 class="modal-title" id="ModalLabel">Edit Internship</h5>
                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                             <span aria-hidden="true">&times;</span>
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
 
-                                                        <form action="" method="POST" enctype="multipart/form-data" id="maintenanceEditForm">
+                                                        <form action="" method="POST" enctype="multipart/form-data" id="internshipEditForm">
                                                             <div class="form-group">
-                                                                <input type="hidden" name="maintenance_id" class="form-control" id="maintenance_id" required>
+                                                                <input type="hidden" name="internship_id" class="form-control" id="internship_id" required>
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="editUserName">User Name</label>
-                                                                <input type="text" name="editUserName" class="form-control" id="editUserName" placeholder="User name" readonly>
+                                                                <label for="editregistrationNo">Reg No</label>
+                                                                <input type="number" name="editregistrationNo" class="form-control" id="editregistrationNo" placeholder="Registration Number" required>
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="editHostelName">Hostel Name</label>
-                                                                <input type="text" name="editHostelName" class="form-control" id="editHostelName" placeholder="Hostel Name" readonly>
+                                                                <label for="editstudentName">Student Name</label>
+                                                                <input type="text" name="editstudentName" class="form-control" id="editstudentName" placeholder="student name" required>
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="editDescription">Description</label>
-                                                                <input type="text" name="editDescription" class="form-control" id="editDescription" placeholder="Description" readonly>
+                                                                <label for="editemailId">Email Id</label>
+                                                                <input type="email" name="editemailId" class="form-control" id="editemailId" placeholder="Email Id" required>
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="maintenanceStatus-Select">Maintenance Status</label>
-                                                                <select class="maintenanceStatusDropdown" name="select-1" id="maintenanceStatus-Select" class="form-control ">
-
-                                                                </select>
+                                                                <label for="editphoneNo">Phone Number</label>
+                                                                <input type="number" name="editphoneNo" class="form-control" id="editphoneNo" placeholder="phone Number" required>
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="maintenanceType-select">Maintenance Type</label>
-                                                                <select class="maintenanceTypeDropdown" name="select-2" id="maintenanceType-select" class="form-control ">
-
+                                                                <label for="editpurpose">Purpose</label>
+                                                                <input type="text" name="editpurpose" class="form-control" id="editpurpose" placeholder="purpose" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="editnoOfDays">No Of Days</label>
+                                                                <input type="number" name="editnoOfDays" class="form-control" id="editnoOfDays" placeholder="No of days" required>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="hostelEdit-select">Choose Hostel</label>       
+                                                                            <select class="hostelDropdown" name="select-1" id="hostelEdit-select" class="form-control ">
+                                                                                
+                                                                            </select>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="messEdit-select">Choose Mess</label>       
+                                                                <select class="messDropdown" name="select-2" id="messEdit-select" class="form-control ">
+                                                                    
                                                                 </select>
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <a  class="btn btn-secondary" data-dismiss="modal">Close</a>
-                                                                <button type="button"  id="editMaintenance" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+                                                                <button type="button"  id="editInternship" class="btn btn-primary" data-dismiss="modal">Save changes</button>
                                                             </div>
                                                         </form>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
+
 
                                     </div>
                                     <div id="filter-form-container"></div>
-                                    <table class="table mb-0 table-borderless adv-table" id="hostelTableData" data-sorting="true" data-filter-container="#filter-form-container" data-paging-current="1" data-paging-position="right" data-paging-size="10">
+                                    <table class="table mb-0 table-borderless" data-sorting="true" data-filter-container="#filter-form-container" data-paging-current="1" data-paging-position="right" data-paging-size="10">
                                         <thead>
                                         <tr class="userDatatable-header">
                                             <th>
                                                 <span class="userDatatable-title">id</span>
                                             </th>
+                                        
                                             <th>
-                                                <span class="userDatatable-title">User Name</span>
+                                                <span class="userDatatable-title">Student Name</span>
+                                            </th>
+                                           
+                                           
+                                            <th>
+                                                <span class="userDatatable-title">EmailId</span>
                                             </th>
                                             <th>
-                                                <span class="userDatatable-title">Hostel Name</span>
+                                                <span class="userDatatable-title">user type</span>
                                             </th>
+                                
                                             <th>
-                                                <span class="userDatatable-title">Maintenance Type</span>
-                                            </th>
-                                            <th>
-                                                <span class="userDatatable-title">Description</span>
-                                            </th>
-                                            <th>
-                                                <span class="userDatatable-title">Date</span>
-                                            </th>
-                                            <th>
-                                                <span class="userDatatable-title">Maintenance Status</span>
+                                                <span class="userDatatable-title">userStatus</span>
                                             </th>
                                             <th>
                                                 <span class="userDatatable-title">Action</span>
                                             </th>
                                         </tr>
                                         </thead>
-                                        <tbody id="maintenanceTableDataBody">
-
-                                        <!-- <tr>
-                                            <td>
-                                                <div class="userDatatable-content">01</div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex">
-                                                    <div class="userDatatable-inline-title">
-                                                        <a href="#" class="text-dark fw-500">
-                                                            <h6>Kellie Marquot </h6>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
-                                                    <li>
-                                                        <a href="#" class="view">
-                                                            <span data-feather="eye"></span></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="edit">
-                                                            <span data-feather="edit"></span></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="remove">
-                                                            <span data-feather="trash-2"></span></a>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr> -->
-
+                                        <tbody id="internshipTableDataBody">
                                         </tbody>
                                     </table>
                                 </div>
@@ -439,7 +466,7 @@
 <script src="assets/theme_assets/js/main.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-<script src="scripts/maintenance.js"></script>
+<script src="scripts/hostel-attendance.js"></script>
 <!-- endinject-->
 </body>
 
