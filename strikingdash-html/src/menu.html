@@ -46,6 +46,7 @@
     <link rel="stylesheet" href="assets/vendor_assets/css/wickedpicker.min.css">
 
     <link rel="stylesheet" href="style.css">
+    
 
     <!-- endinject -->
 
@@ -125,7 +126,7 @@
                                                 <span data-feather="settings"></span> Settings</a>
                                         </li>
                                     </ul>
-                                    <a href="" class="nav-author__signout">
+                                    <a href="login.html" class="nav-author__signout">
                                         <span data-feather="log-out"></span> Sign Out</a>
                                 </div>
                             </div>
@@ -168,65 +169,66 @@
                 
                         <li id="hostel">
                             <a href="hostel-table.html" class="">
-                                <span data-feather="mail" class="nav-icon"></span>
+                
+                                <span class="nav-icon fa-solid fa-bed"></span>
                                 <span class="menu-text">Hostel</span>
                                     
                             </a>
                         </li>
                         <li>
                             <a href="student-table.html" class="">
-                                <span data-feather="mail" class="nav-icon"></span>
+                                <span class="nav-icon fa-solid fa-user"></span>
                                 <span class="menu-text">Student</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="dynamic-table.html" class="">
-                                <span data-feather="mail" class="nav-icon"></span>
-                                <span class="menu-text">Hostel Attendence</span>
-                                    
-                            </a>
-                        </li>
+                        
 
                         <li id="mess">
                             <a href="mess-table.html" class="">
-                                <span data-feather="mail" class="nav-icon"></span>
+                                <span class="nav-icon fa-solid fa-utensils"></span>
                                 <span class="menu-text">Mess</span>
-
+                               
+                            </a>
+                        </li>
+                        <li id="messUser">
+                            <a href="messUser-table.html" class="">
+                                <span class="nav-icon fa-solid fa-people-group"></span>                               
+                                <span class="menu-text">Mess User</span>
                             </a>
                         </li>
                         <li>
                             <a href="hostel-attendance.html" class="">
-                                <span data-feather="message-square" class="nav-icon"></span>
+                                <span class="nav-icon fa-solid fa-person-chalkboard"></span>
                                 <span class="menu-text">Hostel Attendance</span>
                             </a>
                         </li>
                         <li>
                             <a href="ambulance-table.html" class="">
-                                <span data-feather="aperture" class="nav-icon"></span>
+                                <span class="nav-icon fa-solid fa-truck-medical"></span>
                                 <span class="menu-text">Ambulance</span>
                             </a>
                         </li>
                         <li>
                             <a href="ambulance-user.html" class="">
-                                <span data-feather="aperture" class="nav-icon"></span>
+                                <span class="nav-icon fa-solid fa-bed-pulse"></span>
                                 <span class="menu-text">Ambulance User</span>
                             </a>
                         </li>
                         <li>
                             <a href="internship-table.html" class="">
-                                <span data-feather="aperture" class="nav-icon"></span>
+                                <span class="nav-icon fa-solid fa-user-graduate"></span>
                                 <span class="menu-text">Internship</span>
                             </a>
                         </li>
                         <li>
                             <a href="feedback-table.html" class="">
-                                <span data-feather="target" class="nav-icon"></span>
+                                <span class="nav-icon fa-solid fa-comment-dots"></span>
                                 <span class="menu-text">Feedback</span>
                             </a>
                         </li>
                         <li>
                             <a href="maintenance-table.html" class="">
-                                <span data-feather="calendar" class="nav-icon"></span>
+                                <span class="nav-icon fa-solid fa-toolbox"></span>
                                 <span class="menu-text">Maintenance</span>
                             </a>
                         </li>
@@ -355,7 +357,7 @@
                                                     <div class="overview-content overview-content3">
                                                         <div class="d-flex">
                                                             <div class="revenue-chart-box__Icon mr-20 order-bg-opacity-secondary">
-                                                                <img src="img/svg/revenue.svg" alt="img" class="svg">
+                                                                <img src="img/svg/hostel.svg" alt="img" class="svg">
                                                             </div>
                                                             <div>
                                                                 <h2 id="hostel-count"></h2>
@@ -384,7 +386,7 @@
                                                     <div class="overview-content overview-content3">
                                                         <div class="d-flex">
                                                             <div class="revenue-chart-box__Icon mr-20 order-bg-opacity-success">
-                                                                <img src="img/svg/profit.svg" alt="img" class="svg">
+                                                                <img src="img/svg/ambulance.svg" alt="img" class="svg">
                                                             </div>
                                                             <div>
                                                                 <h2 id="ambulance-count"></h2>
@@ -415,7 +417,7 @@
                                                     <div class="overview-content overview-content3">
                                                         <div class="d-flex">
                                                             <div class="revenue-chart-box__Icon mr-20 order-bg-opacity-success">
-                                                                <img src="img/svg/profit.svg" alt="img" class="svg">
+                                                                <img src="img/svg/mess.svg" alt="img" class="svg">
                                                             </div>
                                                             <div>
                                                                 <h2 id="mess-count"></h2>
@@ -587,6 +589,8 @@
     <script src="assets/theme_assets/js/icon-loader.js"></script>
     <script src="assets/theme_assets/js/jvectormap-init.js"></script>
     <script src="assets/theme_assets/js/leaflet-init.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://kit.fontawesome.com/a8e0f985f7.js" crossorigin="anonymous"></script>
     <script src="assets/theme_assets/js/main.js"></script>
     <script src="scripts/menu.js"></script>
     <!-- endinject-->

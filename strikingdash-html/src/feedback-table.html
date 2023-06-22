@@ -120,7 +120,7 @@
                                             <span data-feather="settings"></span> Settings</a>
                                     </li>
                                 </ul>
-                                <a href="" class="nav-author__signout">
+                                <a href="login.html" class="nav-author__signout">
                                     <span data-feather="log-out"></span> Sign Out</a>
                             </div>
                         </div>
@@ -147,9 +147,8 @@
         <div class="sidebar sidebar-collapse" id="sidebar">
             <div class="sidebar__menu-group">
                 <ul class="sidebar_nav">
-
-                    <li class="menu-title m-top-30">
-                        <span>Mess Applications</span>
+                    <li class="menu-title">
+                        <span>Main menu</span>
                     </li>
                     <li>
                         <a href="menu.html" class="">
@@ -158,63 +157,72 @@
             
                         </a>    
                     </li>
-                    <li>
+                    <li class="menu-title m-top-30">
+                        <span>Mess Applications</span>
+                    </li>
+            
+                    <li id="hostel">
                         <a href="hostel-table.html" class="">
-                            <span data-feather="mail" class="nav-icon"></span>
+            
+                            <span class="nav-icon fa-solid fa-bed"></span>
                             <span class="menu-text">Hostel</span>
+                                
                         </a>
                     </li>
                     <li>
                         <a href="student-table.html" class="">
-                            <span data-feather="mail" class="nav-icon"></span>
+                            <span class="nav-icon fa-solid fa-user"></span>
                             <span class="menu-text">Student</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="hostel-attendance.html" class="">
-                            <span data-feather="message-square" class="nav-icon"></span>
-                            <span class="menu-text">Hostel Attendance</span>
-                        </a>
-                    </li>
-                    <li>
+                    
+
+                    <li id="mess">
                         <a href="mess-table.html" class="">
-                            <span data-feather="shopping-cart" class="nav-icon"></span>
+                            <span class="nav-icon fa-solid fa-utensils"></span>
                             <span class="menu-text">Mess</span>
+                           
                         </a>
                     </li>
-                    <li>
+                    <li id="messUser">
                         <a href="messUser-table.html" class="">
-                            <span data-feather="aperture" class="nav-icon"></span>
+                            <span class="nav-icon fa-solid fa-people-group"></span>                               
                             <span class="menu-text">Mess User</span>
                         </a>
                     </li>
                     <li>
-                        <a href="internship-table.html" class="">
-                            <span data-feather="target" class="nav-icon"></span>
-                            <span class="menu-text">Internship</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="feedback-table.html" class="">
-                            <span data-feather="calendar" class="nav-icon"></span>
-                            <span class="menu-text">Feedback</span>
+                        <a href="hostel-attendance.html" class="">
+                            <span class="nav-icon fa-solid fa-person-chalkboard"></span>
+                            <span class="menu-text">Hostel Attendance</span>
                         </a>
                     </li>
                     <li>
                         <a href="ambulance-table.html" class="">
-                            <span data-feather="folder" class="nav-icon"></span>
+                            <span class="nav-icon fa-solid fa-truck-medical"></span>
                             <span class="menu-text">Ambulance</span>
                         </a>
                     </li>
                     <li>
                         <a href="ambulance-user.html" class="">
-                            <span data-feather="aperture" class="nav-icon"></span>
+                            <span class="nav-icon fa-solid fa-bed-pulse"></span>
                             <span class="menu-text">Ambulance User</span>
                         </a>
                     </li>
                     <li>
+                        <a href="internship-table.html" class="">
+                            <span class="nav-icon fa-solid fa-user-graduate"></span>
+                            <span class="menu-text">Internship</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="feedback-table.html" class="">
+                            <span class="nav-icon fa-solid fa-comment-dots"></span>
+                            <span class="menu-text">Feedback</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="maintenance-table.html" class="">
-                            <span data-feather="user-check" class="nav-icon"></span>
+                            <span class="nav-icon fa-solid fa-toolbox"></span>
                             <span class="menu-text">Maintenance</span>
                         </a>
                     </li>
@@ -258,7 +266,7 @@
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="messEdit-select">Choose Mess</label>       
-                                                                <select class="messDropdown" name="select-2" id="messEdit-select" class="form-control ">
+                                                                <select class="messDropdown form-control" name="select-2" id="messEdit-select">
                                                                     
                                                                 </select>
                                                             </div>
@@ -292,43 +300,10 @@
                                             <th>
                                                 <span class="userDatatable-title">Feedback</span>
                                             </th>
-                                            <th>
-                                                <span class="userDatatable-title">Action</span>
-                                            </th>
+                                            
                                         </tr>
                                         </thead>
                                         <tbody id="feedbackTableDataBody">
-
-                                        <!-- <tr>
-                                            <td>
-                                                <div class="userDatatable-content">01</div>
-                                            </td>
-                                            <td>
-                                                <div class="d-flex">
-                                                    <div class="userDatatable-inline-title">
-                                                        <a href="#" class="text-dark fw-500">
-                                                            <h6>Kellie Marquot </h6>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <ul class="orderDatatable_actions mb-0 d-flex flex-wrap">
-                                                    <li>
-                                                        <a href="#" class="view">
-                                                            <span data-feather="eye"></span></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="edit">
-                                                            <span data-feather="edit"></span></a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="remove">
-                                                            <span data-feather="trash-2"></span></a>
-                                                    </li>
-                                                </ul>
-                                            </td>
-                                        </tr> -->
 
                                         </tbody>
                                     </table>
@@ -415,7 +390,7 @@
 <script src="assets/theme_assets/js/leaflet-init.js"></script>
 <script src="assets/theme_assets/js/main.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+<script src="https://kit.fontawesome.com/a8e0f985f7.js" crossorigin="anonymous"></script>
 <script src="scripts/feedback.js"></script>
 <!-- endinject-->
 </body>

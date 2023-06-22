@@ -10,6 +10,7 @@ $(document).ready(function () {
     getHostels();
     getAmbulanceData();
     getMess();
+    getUsers();
     
     function getHostels() {
       $.ajax({
@@ -84,7 +85,17 @@ $(document).ready(function () {
         );
     }
 
-   
+    function getUsers()
+    {
+        $.post(
+          `http://localhost:8080/auth/getUsers`,
+          function (data, status) {
+            let a = data.length;
+            document.getElementById("user-count").innerHTML = a;
+            
+          }
+        );
+    }
 
     function getMess()
     {

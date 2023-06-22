@@ -47,31 +47,24 @@ $(document).ready(function(){
           success: function (data) {
            $("#ambulanceName").val("");
            $("#licensePlate").val("");
-          
-           getAmbulanceData();
-              window.location.reload();
+
+           if(!data.status)
+             {
+              swal("Duplicate Entry", "Ambulance Already Exists", "warning");
+             } else{
+              getAmbulanceData();
+              swal("Ambulance Added Succesfully!!")
+             .then((value) => {
+                   window.location.reload();
+                });
+             }
           },
           error: function () {
+            swal("Server Error", "Something wrong in server", "error");
             console.log("Error");
           },
         });
   })
-
-  function deleteAmbulance(ambulanceId) {
-    $.ajax({
-        url: `http://localhost:8080/ambulance/delete?ambulanceId=${ambulanceId}&userId=${userId}&roleType=${roleType}`,
-        type: "POST",
-            success: function (data) {
-              getAmbulanceData();
-                window.location.reload();
-            },
-            error: function () {
-              getAmbulanceData();
-                window.location.reload();
-            },
-        });
-}
-
 
 });
 

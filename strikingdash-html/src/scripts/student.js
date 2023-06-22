@@ -44,49 +44,17 @@ $(document).ready(function(){
     
 
   
-    $("#editInternship").on("click", function (e) {
-        let internshipId = $("#internship_id").val();
-        let registrationNo = $("#editregistrationNo").val();
-        let name = $("#editstudentName").val();
-        let emailId = $("#editemailId").val();
-        let phoneNo = $("#editphoneNo").val();
-        let purpose = $("#editpurpose").val();
-        let noOfDays = $("#editnoOfDays").val();
-        let hostelId = $("#hostelEdit-select").val();
-        let messId = $("#messEdit-select").val();
-    
-          
-         let userId = localStorage.getItem("userId");
-         let roleType = localStorage.getItem("roleType");
-      
-      $.ajax({
-        url: `http://localhost:8080/internship/addOrEditInternship?internshipId=${internshipId}&registrationNo=${registrationNo}&name=${name}&phoneNo=${phoneNo}&emailId=${emailId}&purpose=${purpose}&noOfDays=${noOfDays}&hostelId=${hostelId}&messId=${messId}&userId=${userId}&roleType=${roleType}`,
-        headers: {
-          "Content-Type": "application/json",
-        },
-        type: "POST",
-        success: function (data) {
-          $("#registrationNo").val("");
-          $("#studentName").val("");
-          $("#emailId").val("");
-          $("#phoneNo").val("");
-          $("#purpose").val("");
-          $("#noOfDays").val("");
-          $(".hostelDropdown").val("");
-          $(".messDropdown").val("");
-             getInternship();
-             window.location.reload();
-          
-        },
-        error: function () {
-          console.log("Error");
-        },
-      });
-    });
-  
+
+    $("#disable-select").on("click",function(e){
+      $("#internshipForm").get(0).reset();
+      $("#floor-select").prop('disabled', true);
+      $("#room-select").prop('disabled', true);
+    })
   
     function getHostels()
     {
+      $("#floor-select").prop('disabled', true);
+      $("#room-select").prop('disabled', true);
         console.log("get Hostels")
         $.ajax({
           url: `http://localhost:8080/hostel/getAllHostels?userId=${userId}`,
@@ -114,6 +82,8 @@ $(document).ready(function(){
             url: `http://localhost:8080/hostel/getBy?hostel_id=${hostel_id}`,
             method: "POST",
             success: function (data) {
+              $("#floor-select").prop('disabled', false);
+              
                 let noOfFloors = data.noOfFloors;
                 let noOfRoomPerFloor = data.noOfRoomPerFloor;
                 let noOfStudentPerRoom = data.noOfStudentPerRoom;
@@ -129,7 +99,7 @@ $(document).ready(function(){
            }
 
            $("#floor-select").on("change", function(){
-       
+            $("#room-select").prop('disabled', false);
             let floorNo = this.value * 100;
             $(".roomDropdown").empty();
             $(".roomDropdown").append($("<option>").append("Select Option"));
@@ -162,15 +132,25 @@ $(document).ready(function(){
              $("#hostel-select").val("");
              $("#room-select").val("");
              $("#floor-select").val("");
-                getStudents();
-                window.location.reload();
-
+             if(!data.status)
+             {
+              swal("Please Select Different Room", "Room is Occupied", "error");
+             } else{
+              getStudents();
+              swal("Hostel Assigned Succesfully!!")
+             .then((value) => {
+                   window.location.reload();
+                });
+             }
             },
             error: function () {
+              swal("Please Select Different Room", "Room is Occupied", "error");
               console.log("Error");
             },
           });
     })
+
+
       
   });
   

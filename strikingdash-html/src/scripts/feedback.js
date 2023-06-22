@@ -100,8 +100,10 @@ $("#saveFeedback").click(function() {
 
       success: function (data) {
           $("#feedback").val("");
-          getFeedbackData();
-          window.location.reload();
+            getFeedbackData();
+            swal("Good Job!!", "Feedback Added Successfully", "success").then((value) => {
+              window.location.reload();
+            });
       },
       error: function () {
         console.log("Error");

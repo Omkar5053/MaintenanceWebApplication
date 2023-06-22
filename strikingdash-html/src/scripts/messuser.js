@@ -43,18 +43,43 @@ $(document).ready(function(){
       }
   
       function deleteMessUser(messUserId) {
-        $.ajax({
-            url: `http://localhost:8080/mess/deleteStudentMessUserData?messUserId=${messUserId}&userId=${userId}&roleType=${roleType}`,
-            type: "POST",
-                success: function (data) {
-                    getMessUsers();
+
+        swal({
+          title: "Are you sure?",
+          text: "you want to delete this hostel",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        }).then((willDelete) => {
+          if (willDelete) {
+            $.ajax({
+              url: `http://localhost:8080/mess/deleteStudentMessUserData?messUserId=${messUserId}&userId=${userId}&roleType=${roleType}`,
+              type: "POST",
+              success: function (data) {
+                if(data.status){
+                  getMessUsers();
+                  swal("Mess User Deleted Succesfully!!")
+                 .then((value) => {
                     window.location.reload();
-                },
-                error: function () {
-                    getMessUsers();
-                    window.location.reload();
-                },
+                  });   
+                 
+                }else{
+                  swal("You can't delete");
+                }
+       
+              },
+              error: function (http) {
+                swal("You can't delete this Hostel");
+                getHostels();
+                window.location.reload();
+              },
             });
+          }
+          //  else {
+          //   swal("Your Hostel is safe");
+          // }
+        });
+
     }
 
       
